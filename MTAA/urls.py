@@ -23,6 +23,6 @@ from rest_framework_jwt.views import obtain_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('Orders.urls')),
-    url(r'login/', obtain_jwt_token),
+    url(r'auth/login/', obtain_jwt_token),
 
 ]

@@ -8,20 +8,8 @@ tags:
   - name: Accommodations
 
 paths:
-  /user/logout/:
-    post:
-      tags:
-        - User
-      summary: User logout
-      responses:
-        '200':
-          description: OK
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalError'
 
-  /user/login/:
+  /auth/login/:
     post:
       tags:
         - User
@@ -41,7 +29,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
 
-  /user/register/:
+  /auth/register/:
     post:
       tags:
         - User
@@ -123,7 +111,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
     
-  /user/{id}/orders/:
+  /order/:
     get:
       tags:
         - User
@@ -149,7 +137,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
   
-  /user/{id}/orders/{order_id}/:
+  /order/{order_id}/:
     get:
       tags:
         - User
@@ -178,7 +166,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
-    
+
+  /order/{order_id}/update/:
     put:
       tags:
         - User
@@ -217,7 +206,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
-    
+
+  /order/{order_id}/delete/:
     delete:
       tags:
         - User
@@ -243,7 +233,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
           
-  /user/{id}/orders/{acc_id}/:
+  /order/{acc_id}/create/:
     post:
       tags:
         - User
@@ -338,10 +328,42 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
+
+  /accommodation/{id}/rating/{rating_id}/:
     put:
       tags:
         - Accommodations
       summary: Updates rating for specified accommodation
+      parameters:
+        - in: path
+          name: id
+          description: Accommodation uuid
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: rating_id
+          description: Rating uuid
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '200':
+          description: OK
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags:
+        - Accommodations
+      summary: Deletes rating for specified accommodation
       parameters:
         - in: path
           name: id
@@ -354,7 +376,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Rating'
-      
+
       responses:
         '200':
           description: OK
@@ -386,10 +408,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
+    
+  /accommodation/{id}/rating-reply/{reply_id}/:
     put:
       tags:
         - Accommodations
-      summary: Updates the rating reply 
+      summary: Updates the rating reply
       parameters:
         - in: path
           name: id
@@ -402,7 +426,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/IdValue'
-      
+
       responses:
         '200':
           description: OK
@@ -410,10 +434,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
-    
 
-    
-  /accommodation/{id}/rating-reply/{reply_id}/:
     delete:
       tags:
         - Accommodations
@@ -528,8 +549,6 @@ components:
     User:
       type: object
       properties:
-        isTemporary:
-          type: boolean
         username:
           type: string
         firstName:
@@ -539,18 +558,6 @@ components:
         email:
           type: string
         password:
-          type: string
-        gender:
-          type: integer
-        addressStreet:
-          type: string
-        addressStreetNumber:
-          type: string
-        addressCity:
-          type: string
-        addressPostalCode:
-          type: string
-        addressCountry:
           type: string
 
     Rating:
@@ -565,6 +572,8 @@ components:
         title:
           type: string
         content:
+          type: string
+        image:
           type: string
         createdAt:
           type: string
