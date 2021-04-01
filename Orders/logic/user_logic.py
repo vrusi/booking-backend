@@ -28,3 +28,12 @@ class UserLogic:
 
         api_user = self.parser.parser_user_info(user)
         return api_user
+
+    def delete_user(self, user_id):
+
+        try:
+            user = UserProfile.objects.filter(id=user_id)[0]
+        except Exception as e:
+            raise e
+
+        user.delete()
