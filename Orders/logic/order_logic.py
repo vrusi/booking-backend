@@ -22,3 +22,12 @@ class OrderLogic:
 
         api_order = self.parser.parse_order(order)
         return api_order
+        
+    def create_order(self, user, acc_id):
+        try:
+            Order.objects.create(
+                acc_booked_id=acc_id,
+                booked_by=user
+            )
+        except Exception as e:
+            raise e
