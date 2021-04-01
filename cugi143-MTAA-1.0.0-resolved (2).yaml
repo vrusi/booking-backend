@@ -1,0 +1,623 @@
+---
+openapi: 3.0.0
+info:
+  title: MTAA API
+  version: 1.0.0
+servers:
+- url: http://127.0.0.1:8000
+tags:
+- name: User
+- name: Accommodations
+paths:
+  /user/logout/:
+    post:
+      tags:
+      - User
+      summary: User logout
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: 'Bad request: The server could not understand the request due to invalid syntax'
+        "500":
+          description: Internal server error
+  /user/login/:
+    post:
+      tags:
+      - User
+      summary: User login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: 'Bad request: The server could not understand the request due to invalid syntax'
+        "409":
+          description: Request conflicts with current state of the target resource.
+        "500":
+          description: Internal server error
+  /user/register/:
+    post:
+      tags:
+      - User
+      summary: User register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: 'Bad request: The server could not understand the request due to invalid syntax'
+        "409":
+          description: Request conflicts with current state of the target resource.
+        "500":
+          description: Internal server error
+  /user/{id}:
+    get:
+      tags:
+      - User
+      summary: Get user information
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - User
+      summary: Update user information
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - User
+      summary: Delete user
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /user/{id}/orders/:
+    get:
+      tags:
+      - User
+      summary: Get all orders by user
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /user/{id}/orders/{order_id}/:
+    get:
+      tags:
+      - User
+      summary: Get order by id
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: order_id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - User
+      summary: Update order with id
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: order_id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - User
+      summary: delete order
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: order_id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /user/{id}/orders/{acc_id}/:
+    post:
+      tags:
+      - User
+      summary: Create order with accommodation
+      parameters:
+      - name: id
+        in: path
+        description: user uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: acc_id
+        in: path
+        description: Accommodation uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /accommodation/:
+    get:
+      tags:
+      - Accommodations
+      summary: Returns list of filtered accommodations
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Accommodation'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /accommodation/{id}/:
+    get:
+      tags:
+      - Accommodations
+      summary: Gets informations about accommodation by id
+      parameters:
+      - name: id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accommodation'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /accommodation/{id}/rating/:
+    put:
+      tags:
+      - Accommodations
+      summary: Gets calendar availability for current availability in date span
+      parameters:
+      - name: id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Accommodations
+      summary: Gets calendar availability for current availability in date span
+      parameters:
+      - name: id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /accommodation/{id}/rating-reply/:
+    put:
+      tags:
+      - Accommodations
+      summary: Gets calendar availability for current availability in date span
+      parameters:
+      - name: id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdValue'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Accommodations
+      summary: Gets calendar availability for current availability in date span
+      parameters:
+      - name: id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdValue'
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+  /accommodation/{id}/rating-reply/{reply_id}/:
+    delete:
+      tags:
+      - Accommodations
+      summary: Gets calendar availability for current availability in date span
+      parameters:
+      - name: id
+        in: path
+        description: Order uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: reply_id
+        in: path
+        description: Reply uuid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: The specified resource was not found
+        "500":
+          description: Internal server error
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        state:
+          type: string
+        accommodation:
+          $ref: '#/components/schemas/Accommodation'
+        occupant_count:
+          type: integer
+    Accommodation:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+        location:
+          $ref: '#/components/schemas/Location'
+        occupant_count:
+          type: integer
+        rating:
+          $ref: '#/components/schemas/Accommodation_rating'
+    Location:
+      type: object
+      properties:
+        id:
+          type: string
+        address:
+          type: string
+    Filter:
+      type: object
+      properties:
+        locationId:
+          type: string
+        occupants:
+          type: integer
+    User:
+      type: object
+      properties:
+        isTemporary:
+          type: boolean
+        username:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        gender:
+          type: integer
+        addressStreet:
+          type: string
+        addressStreetNumber:
+          type: string
+        addressCity:
+          type: string
+        addressPostalCode:
+          type: string
+        addressCountry:
+          type: string
+    Rating:
+      type: object
+      properties:
+        id:
+          type: string
+        author:
+          $ref: '#/components/schemas/User'
+        rating:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+        replies:
+          type: array
+          items:
+            $ref: '#/components/schemas/RatingReply'
+    RatingReply:
+      type: object
+      properties:
+        id:
+          type: string
+        author:
+          $ref: '#/components/schemas/User'
+        rating:
+          type: integer
+        content:
+          type: string
+        createdAt:
+          type: string
+    AuthRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    AuthToken:
+      type: object
+      properties:
+        token:
+          type: string
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        userId:
+          type: string
+        expiresAt:
+          type: number
+    IdValue:
+      type: object
+      properties:
+        id:
+          type: string
+    body:
+      type: object
+      properties:
+        accommodation:
+          type: string
+        booking:
+          type: string
+    Accommodation_rating:
+      type: object
+      properties:
+        average:
+          type: number
+        count:
+          type: integer
+        ratings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rating'
+  responses:
+    OK:
+      description: OK
+    Created:
+      description: Resource created successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/IdValue'
+    BadRequest:
+      description: 'Bad request: The server could not understand the request due to invalid syntax'
+    NotFound:
+      description: The specified resource was not found
+    Conflict:
+      description: Request conflicts with current state of the target resource.
+    InternalError:
+      description: Internal server error
+  securitySchemes:
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
