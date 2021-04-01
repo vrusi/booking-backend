@@ -39,7 +39,7 @@ class AccommodationLogic:
         f.close()
 
     def update_rating(self, rating_id, data):
-        rating_id = data['id']
+        # rating_id = data['id']
 
         try:
             rating = Rating.objects.filter(id=rating_id)[0]
@@ -52,8 +52,8 @@ class AccommodationLogic:
 
         rating.save()
 
-    def delete_rating(self, rating_id, data):
-        rating_id = data['id']
+    def delete_rating(self, rating_id):
+        # rating_id = data['id']
 
         try:
             rating = Rating.objects.filter(id=rating_id)[0]
