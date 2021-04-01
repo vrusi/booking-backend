@@ -1,13 +1,15 @@
 from Orders.parsers.accommodation_parser import AccommodationParser
 from Orders.models import *
 
+
 class AccommodationLogic:
     parser = AccommodationParser()
 
     def get_filtered_accommodations(self, filter_criteria):
         accommodations = Accommodation.objects.all()
 
-        api_accommodations = [self.parser.parse_accommodation_overview(acc) for acc in accommodations]
+        api_accommodations = [self.parser.parse_accommodation_overview(
+            acc) for acc in accommodations]
 
         return api_accommodations
 
@@ -61,3 +63,30 @@ class AccommodationLogic:
             raise e
 
         rating.delete()
+
+    def create_rating_reply(self, user, data):
+        RatingReply.objects.create(
+            rating_parent_id=data['parent'],
+            user=user,
+            text=data['text']
+        )
+
+    def update_rating_reply(self, reply_id, data):
+
+        try:
+            reply = RatingReply.objects.filter(id=reply_id)[0]
+        except Exception as e:
+            raise e
+
+        reply.text = data['text']
+
+        reply.save()
+
+    def delete_rating_reply(self, reply_id):
+
+        try:
+            reply = RatingReply.objects.filter(id=reply_id)[0]
+        except Exception as e:
+            raise e
+
+        reply.delete()
