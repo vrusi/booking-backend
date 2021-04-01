@@ -65,7 +65,7 @@ paths:
     get:
       tags:
         - User
-      summary: Get user information
+      summary: Gets user information
       parameters:
         - in: path
           name: id
@@ -88,7 +88,7 @@ paths:
     put:
       tags:
         - User
-      summary: Update user information
+      summary: Updates user information
       parameters:
         - in: path
           name: id
@@ -107,7 +107,7 @@ paths:
     delete:
       tags:
         - User
-      summary: Delete user
+      summary: Deletes user
       parameters:
         - in: path
           name: id
@@ -127,7 +127,7 @@ paths:
     get:
       tags:
         - User
-      summary: Get all orders by user
+      summary: Gets all orders by user
       parameters:
         - in: path
           name: id
@@ -182,7 +182,7 @@ paths:
     put:
       tags:
         - User
-      summary: Update order with id
+      summary: Updates order
       parameters:
         - in: path
           name: id
@@ -221,7 +221,7 @@ paths:
     delete:
       tags:
         - User
-      summary: delete order
+      summary: Deletes order
       parameters:
         - in: path
           name: id
@@ -247,7 +247,7 @@ paths:
     post:
       tags:
         - User
-      summary: Create order with accommodation
+      summary: Creates order with accommodation
       parameters:
         - in: path
           name: id
@@ -278,7 +278,7 @@ paths:
     get:
       tags:
         - Accommodations
-      summary: Returns list of filtered accommodations
+      summary: Gets list of filtered accommodations
       responses:
         '200':
           description: OK
@@ -297,11 +297,11 @@ paths:
     get:
       tags:
         - Accommodations
-      summary: Gets informations about accommodation by id
+      summary: Gets information about accommodation by id
       parameters:
         - in: path
           name: id
-          description: Order uuid
+          description: Accommodation uuid
           schema:
             type: string
           required: true
@@ -323,11 +323,11 @@ paths:
     post:
       tags:
         - Accommodations
-      summary: Gets calendar availability for current availability in date span
+      summary: Adds a rating for specified accommodation
       parameters:
         - in: path
           name: id
-          description: Order uuid
+          description: Accommodation uuid
           schema:
             type: string
           required: true
@@ -341,11 +341,11 @@ paths:
     put:
       tags:
         - Accommodations
-      summary: Gets calendar availability for current availability in date span
+      summary: Updates rating for specified accommodation
       parameters:
         - in: path
           name: id
-          description: Order uuid
+          description: Accommodation uuid
           schema:
             type: string
           required: true
@@ -367,11 +367,11 @@ paths:
     post:
       tags:
         - Accommodations
-      summary: Gets calendar availability for current availability in date span
+      summary: Adds a rating reply to specified accommodation
       parameters:
         - in: path
           name: id
-          description: Order uuid
+          description: Accommodation uuid
           schema:
             type: string
           required: true
@@ -389,11 +389,11 @@ paths:
     put:
       tags:
         - Accommodations
-      summary: Gets calendar availability for current availability in date span
+      summary: Updates the rating reply 
       parameters:
         - in: path
           name: id
-          description: Order uuid
+          description: Accommodation uuid
           schema:
             type: string
           required: true
@@ -417,11 +417,11 @@ paths:
     delete:
       tags:
         - Accommodations
-      summary: Gets calendar availability for current availability in date span
+      summary: Deletes rating reply
       parameters:
         - in: path
           name: id
-          description: Order uuid
+          description: Accommodation uuid
           schema:
             type: string
           required: true
