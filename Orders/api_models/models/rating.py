@@ -38,6 +38,7 @@ class Rating(object):
         'rating': 'int',
         'title': 'str',
         'content': 'str',
+        'image': 'str',
         'created_at': 'str',
         'replies': 'list[RatingReply]'
     }
@@ -48,11 +49,12 @@ class Rating(object):
         'rating': 'rating',
         'title': 'title',
         'content': 'content',
+        'image': 'image',
         'created_at': 'createdAt',
         'replies': 'replies'
     }
 
-    def __init__(self, id=None, author=None, rating=None, title=None, content=None, created_at=None, replies=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, author=None, rating=None, title=None, content=None, image=None, created_at=None, replies=None, local_vars_configuration=None):  # noqa: E501
         """Rating - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class Rating(object):
         self._rating = None
         self._title = None
         self._content = None
+        self._image = None
         self._created_at = None
         self._replies = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class Rating(object):
             self.title = title
         if content is not None:
             self.content = content
+        if image is not None:
+            self.image = image
         if created_at is not None:
             self.created_at = created_at
         if replies is not None:
@@ -186,6 +191,27 @@ class Rating(object):
         """
 
         self._content = content
+
+    @property
+    def image(self):
+        """Gets the image of this Rating.  # noqa: E501
+
+
+        :return: The image of this Rating.  # noqa: E501
+        :rtype: str
+        """
+        return self._image
+
+    @image.setter
+    def image(self, image):
+        """Sets the image of this Rating.
+
+
+        :param image: The image of this Rating.  # noqa: E501
+        :type: str
+        """
+
+        self._image = image
 
     @property
     def created_at(self):

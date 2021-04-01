@@ -33,57 +33,34 @@ class User(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'is_temporary': 'bool',
         'username': 'str',
         'first_name': 'str',
         'last_name': 'str',
         'email': 'str',
-        'password': 'str',
-        'gender': 'int',
-        'address_street': 'str',
-        'address_street_number': 'str',
-        'address_city': 'str',
-        'address_postal_code': 'str',
-        'address_country': 'str'
+        'password': 'str'
     }
 
     attribute_map = {
-        'is_temporary': 'isTemporary',
         'username': 'username',
         'first_name': 'firstName',
         'last_name': 'lastName',
         'email': 'email',
-        'password': 'password',
-        'gender': 'gender',
-        'address_street': 'addressStreet',
-        'address_street_number': 'addressStreetNumber',
-        'address_city': 'addressCity',
-        'address_postal_code': 'addressPostalCode',
-        'address_country': 'addressCountry'
+        'password': 'password'
     }
 
-    def __init__(self, is_temporary=None, username=None, first_name=None, last_name=None, email=None, password=None, gender=None, address_street=None, address_street_number=None, address_city=None, address_postal_code=None, address_country=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, username=None, first_name=None, last_name=None, email=None, password=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._is_temporary = None
         self._username = None
         self._first_name = None
         self._last_name = None
         self._email = None
         self._password = None
-        self._gender = None
-        self._address_street = None
-        self._address_street_number = None
-        self._address_city = None
-        self._address_postal_code = None
-        self._address_country = None
         self.discriminator = None
 
-        if is_temporary is not None:
-            self.is_temporary = is_temporary
         if username is not None:
             self.username = username
         if first_name is not None:
@@ -94,39 +71,6 @@ class User(object):
             self.email = email
         if password is not None:
             self.password = password
-        if gender is not None:
-            self.gender = gender
-        if address_street is not None:
-            self.address_street = address_street
-        if address_street_number is not None:
-            self.address_street_number = address_street_number
-        if address_city is not None:
-            self.address_city = address_city
-        if address_postal_code is not None:
-            self.address_postal_code = address_postal_code
-        if address_country is not None:
-            self.address_country = address_country
-
-    @property
-    def is_temporary(self):
-        """Gets the is_temporary of this User.  # noqa: E501
-
-
-        :return: The is_temporary of this User.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_temporary
-
-    @is_temporary.setter
-    def is_temporary(self, is_temporary):
-        """Sets the is_temporary of this User.
-
-
-        :param is_temporary: The is_temporary of this User.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_temporary = is_temporary
 
     @property
     def username(self):
@@ -232,132 +176,6 @@ class User(object):
         """
 
         self._password = password
-
-    @property
-    def gender(self):
-        """Gets the gender of this User.  # noqa: E501
-
-
-        :return: The gender of this User.  # noqa: E501
-        :rtype: int
-        """
-        return self._gender
-
-    @gender.setter
-    def gender(self, gender):
-        """Sets the gender of this User.
-
-
-        :param gender: The gender of this User.  # noqa: E501
-        :type: int
-        """
-
-        self._gender = gender
-
-    @property
-    def address_street(self):
-        """Gets the address_street of this User.  # noqa: E501
-
-
-        :return: The address_street of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_street
-
-    @address_street.setter
-    def address_street(self, address_street):
-        """Sets the address_street of this User.
-
-
-        :param address_street: The address_street of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._address_street = address_street
-
-    @property
-    def address_street_number(self):
-        """Gets the address_street_number of this User.  # noqa: E501
-
-
-        :return: The address_street_number of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_street_number
-
-    @address_street_number.setter
-    def address_street_number(self, address_street_number):
-        """Sets the address_street_number of this User.
-
-
-        :param address_street_number: The address_street_number of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._address_street_number = address_street_number
-
-    @property
-    def address_city(self):
-        """Gets the address_city of this User.  # noqa: E501
-
-
-        :return: The address_city of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_city
-
-    @address_city.setter
-    def address_city(self, address_city):
-        """Sets the address_city of this User.
-
-
-        :param address_city: The address_city of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._address_city = address_city
-
-    @property
-    def address_postal_code(self):
-        """Gets the address_postal_code of this User.  # noqa: E501
-
-
-        :return: The address_postal_code of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_postal_code
-
-    @address_postal_code.setter
-    def address_postal_code(self, address_postal_code):
-        """Sets the address_postal_code of this User.
-
-
-        :param address_postal_code: The address_postal_code of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._address_postal_code = address_postal_code
-
-    @property
-    def address_country(self):
-        """Gets the address_country of this User.  # noqa: E501
-
-
-        :return: The address_country of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_country
-
-    @address_country.setter
-    def address_country(self, address_country):
-        """Sets the address_country of this User.
-
-
-        :param address_country: The address_country of this User.  # noqa: E501
-        :type: str
-        """
-
-        self._address_country = address_country
 
     def to_dict(self):
         """Returns the model properties as a dict"""

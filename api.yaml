@@ -116,13 +116,6 @@ paths:
       tags:
         - User
       summary: Gets all orders by user
-      parameters:
-        - in: path
-          name: id
-          description: user uuid
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: OK
@@ -143,12 +136,6 @@ paths:
         - User
       summary: Get order by id
       parameters:
-        - in: path
-          name: id
-          description: user uuid
-          schema:
-            type: string
-          required: true
         - in: path
           name: order_id
           description: Order uuid
@@ -173,12 +160,6 @@ paths:
         - User
       summary: Updates order
       parameters:
-        - in: path
-          name: id
-          description: user uuid
-          schema:
-            type: string
-          required: true
         - in: path
           name: order_id
           description: Order uuid
@@ -214,12 +195,6 @@ paths:
       summary: Deletes order
       parameters:
         - in: path
-          name: id
-          description: user uuid
-          schema:
-            type: string
-          required: true
-        - in: path
           name: order_id
           description: Order uuid
           schema:
@@ -239,12 +214,6 @@ paths:
         - User
       summary: Creates order with accommodation
       parameters:
-        - in: path
-          name: id
-          description: user uuid
-          schema:
-            type: string
-          required: true
         - in: path
           name: acc_id
           description: Accommodation uuid
@@ -371,6 +340,12 @@ paths:
           schema:
             type: string
           required: true
+        - in: path
+          name: rating_id
+          description: Rating uuid
+          schema:
+            type: string
+          required: true
       requestBody:
         content:
           application/json:
@@ -418,6 +393,12 @@ paths:
         - in: path
           name: id
           description: Accommodation uuid
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: reply_id
+          description: Reply uuid
           schema:
             type: string
           required: true
