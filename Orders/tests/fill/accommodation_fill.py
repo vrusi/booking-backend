@@ -6,7 +6,7 @@ import random
 def fill_locations():
     for i in range(5):
         Location.objects.create(
-            address='Adresa lokácie' + str(i)
+            address='Adresa lokácie ' + str(i)
         ).save()
 
     return Location.objects.all()
@@ -17,6 +17,14 @@ def fill_accommodations():
 
     for i in range(10):
         Accommodation.objects.create(
+            title='Názov ubytovania ' + str(i),
+            images=('https://images.unsplash.com/photo-1597047084897-51e81819a499?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3298&q=80', 'https://images.unsplash.com/photo-1603794067602-9feaa4f70e0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80'),
+            occupant_count=random.randint(2,10),
+            rating=Rating.objects.create(
+                average=0,
+                count=0,
+                ratings=None
+            ),
             location=random.choice(locations)
         ).save()
 
