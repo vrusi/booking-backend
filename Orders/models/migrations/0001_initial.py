@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=512)),
                 ('description', models.CharField(max_length=512)),
                 ('occupant_count', models.IntegerField(blank=False, null=False)),
-                ('images', ArrayField(models.CharField(max_length=150, blank=False))),
+                ('images', ArrayField(models.CharField(max_length=500, blank=False))),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],

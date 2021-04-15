@@ -34,7 +34,7 @@ class Accommodation(AbstractModel):
     occupant_count = models.IntegerField(null=False, default=0)
 
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=False)
-    images = ArrayField(models.CharField(max_length=150, blank=False))
+    images = ArrayField(models.CharField(max_length=500, blank=False))
     class Meta:
         db_table = 'Accommodation'
 
