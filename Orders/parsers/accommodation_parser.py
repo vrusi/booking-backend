@@ -24,7 +24,7 @@ class AccommodationParser:
             in Rating.objects.filter(accommodation=accommodation)
         ]
 
-        api_accommodation.rating.average /= api_accommodation.rating.count
+        api_accommodation.rating.average = None if api_accommodation.rating.count == 0 else api_accommodation.rating.average/ api_accommodation.rating.count
 
         return api_accommodation
 

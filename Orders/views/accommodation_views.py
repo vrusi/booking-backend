@@ -13,7 +13,7 @@ class AccommodationView(GenericViewSet):
     logger = logging.getLogger(__name__)
     logic = AccommodationLogic()
 
-    # permission_classes = [AllowAny]
+    permission_classes = [AllowAny]
 
     def list(self, request):
         try:
