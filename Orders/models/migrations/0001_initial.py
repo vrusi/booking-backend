@@ -6,6 +6,8 @@ import django.contrib.auth.validators
 from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
+from django.contrib.postgres.fields import ArrayField
+
 import uuid
 
 
@@ -22,6 +24,10 @@ class Migration(migrations.Migration):
             name='Accommodation',
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False, unique=True)),
+                ('title', models.CharField(max_length=512)),
+                ('description', models.CharField(max_length=512)),
+                ('occupant_count', models.IntegerField(blank=False, null=False)),
+                ('images', ArrayField(models.CharField(max_length=150, blank=False))),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],

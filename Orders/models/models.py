@@ -2,6 +2,8 @@ import uuid
 from django.db import models
 # from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
+from django.contrib.postgres.fields import ArrayField
+
 
 
 class AbstractModel(models.Model):
@@ -27,8 +29,12 @@ class Location(AbstractModel):
 
 
 class Accommodation(AbstractModel):
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=False)
+    title = models.CharField(max_length=512)
+    description= models.CharField(max_length=512)
+    occupant_count = models.IntegerField(null=False, default=0)
 
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=False)
+    images = ArrayField(models.CharField(max_length=150, blank=False))
     class Meta:
         db_table = 'Accommodation'
 

@@ -10,6 +10,10 @@ class AccommodationParser:
                 id=accommodation.location.id.__str__(),
                 address=accommodation.location.address
             ),
+            description=accommodation.description,
+            images=accommodation.images,
+            title=accommodation.title,
+            occupant_count=accommodation.occupant_count
         )
 
         # Rating
