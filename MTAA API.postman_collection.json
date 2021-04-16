@@ -1,0 +1,2607 @@
+{
+	"info": {
+		"_postman_id": "330bcdc0-ff0b-4723-a622-5296cc991172",
+		"name": "MTAA API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "User login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Request conflicts with current state of the target resource.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"deseru\",\n    \"password\": \"velit\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"deseru\",\n    \"password\": \"velit\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Bad request: The server could not understand the request due to invalid syntax",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"deseru\",\n    \"password\": \"velit\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"deseru\",\n    \"password\": \"velit\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"firstName\": \"dolore cillum elit commodo aliqua\",\n    \"lastName\": \"voluptate\",\n    \"email\": \"deserunt elit a\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/register/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Request conflicts with current state of the target resource.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"amet \",\n    \"firstName\": \"dolore cillum elit commodo aliqua\",\n    \"lastName\": \"voluptate\",\n    \"email\": \"deserunt elit a\",\n    \"password\": \"commodo nulla dolor\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"amet \",\n    \"firstName\": \"dolore cillum elit commodo aliqua\",\n    \"lastName\": \"voluptate\",\n    \"email\": \"deserunt elit a\",\n    \"password\": \"commodo nulla dolor\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"amet \",\n    \"firstName\": \"dolore cillum elit commodo aliqua\",\n    \"lastName\": \"voluptate\",\n    \"email\": \"deserunt elit a\",\n    \"password\": \"commodo nulla dolor\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Bad request: The server could not understand the request due to invalid syntax",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"amet \",\n    \"firstName\": \"dolore cillum elit commodo aliqua\",\n    \"lastName\": \"voluptate\",\n    \"email\": \"deserunt elit a\",\n    \"password\": \"commodo nulla dolor\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user/{id}",
+			"item": [
+				{
+					"name": "Gets user information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "non",
+									"type": "string",
+									"description": "(Required) user uuid"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"username\": \"amet \",\n \"firstName\": \"dolore cillum elit commodo aliqua\",\n \"lastName\": \"voluptate\",\n \"email\": \"deserunt elit a\",\n \"password\": \"commodo nulla dolor\"\n}"
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "The specified resource was not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Updates user information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "non",
+									"type": "string",
+									"description": "(Required) user uuid"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The specified resource was not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Deletes user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "non",
+									"type": "string",
+									"description": "(Required) user uuid"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "The specified resource was not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "{order id}",
+					"item": [
+						{
+							"name": "Get order by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/:order_id/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										":order_id",
+										""
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": "non",
+											"type": "string",
+											"description": "(Required) Order uuid"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"Duis pariatur\",\n \"state\": \"sit irure labore\",\n \"accommodation\": {\n  \"id\": \"nostrud aliqua quis mollit\",\n  \"title\": \"labore non cillum sunt\",\n  \"description\": \"quis pariatur consectetur proident\",\n  \"images\": [\n   \"commodo sint\",\n   \"pariatur\"\n  ],\n  \"location\": {\n   \"id\": \"velit consequat aliqua\",\n   \"address\": \"mollit\"\n  },\n  \"occupant_count\": -17542293,\n  \"rating\": {\n   \"average\": -48726023.517282255,\n   \"count\": 28829845,\n   \"ratings\": [\n    {\n     \"id\": \"enim elit\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": 59643674,\n     \"title\": \"ut tempor reprehenderit\",\n     \"content\": \"incididunt cupidatat\",\n     \"image\": \"occaecat cillum dolore consequat ut\",\n     \"createdAt\": \"cillum sint do dolore\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    },\n    {\n     \"id\": \"ut\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": -88501172,\n     \"title\": \"sunt\",\n     \"content\": \"ei\",\n     \"image\": \"ex eu laboris nostrud\",\n     \"createdAt\": \"sit eius\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   ]\n  }\n },\n \"occupant_count\": 78782472\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Updates order",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accommodation\": \"ad culpa\",\n    \"booking\": \"ea non in nisi\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/order/:order_id/update/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										":order_id",
+										"update",
+										""
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": "non",
+											"type": "string",
+											"description": "(Required) Order uuid"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"accommodation\": \"ad culpa\",\n    \"booking\": \"ea non in nisi\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/update/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												"update",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"accommodation\": \"ad culpa\",\n    \"booking\": \"ea non in nisi\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/update/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												"update",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"accommodation\": \"ad culpa\",\n    \"booking\": \"ea non in nisi\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/update/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												"update",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"Duis pariatur\",\n \"state\": \"sit irure labore\",\n \"accommodation\": {\n  \"id\": \"nostrud aliqua quis mollit\",\n  \"title\": \"labore non cillum sunt\",\n  \"description\": \"quis pariatur consectetur proident\",\n  \"images\": [\n   \"commodo sint\",\n   \"pariatur\"\n  ],\n  \"location\": {\n   \"id\": \"velit consequat aliqua\",\n   \"address\": \"mollit\"\n  },\n  \"occupant_count\": -17542293,\n  \"rating\": {\n   \"average\": -48726023.517282255,\n   \"count\": 28829845,\n   \"ratings\": [\n    {\n     \"id\": \"enim elit\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": 59643674,\n     \"title\": \"ut tempor reprehenderit\",\n     \"content\": \"incididunt cupidatat\",\n     \"image\": \"occaecat cillum dolore consequat ut\",\n     \"createdAt\": \"cillum sint do dolore\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    },\n    {\n     \"id\": \"ut\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": -88501172,\n     \"title\": \"sunt\",\n     \"content\": \"ei\",\n     \"image\": \"ex eu laboris nostrud\",\n     \"createdAt\": \"sit eius\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   ]\n  }\n },\n \"occupant_count\": 78782472\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes order",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/:order_id/delete/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										":order_id",
+										"delete",
+										""
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": "non",
+											"type": "string",
+											"description": "(Required) Order uuid"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/delete/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												"delete",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/delete/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												"delete",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/order/:order_id/delete/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"order",
+												":order_id",
+												"delete",
+												""
+											],
+											"variable": [
+												{
+													"key": "order_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Gets all orders by user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The specified resource was not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"vol\",\n  \"state\": \"anim\",\n  \"accommodation\": {\n   \"id\": \"do dolore est\",\n   \"title\": \"in velit nisi dolor do\",\n   \"description\": \"aliquip Excepteur ut Lorem ex\",\n   \"images\": [\n    \"velit adipisicing\",\n    \"et ex\"\n   ],\n   \"location\": {\n    \"id\": \"ullamco dolor\",\n    \"address\": \"dolor non irure\"\n   },\n   \"occupant_count\": 55692187,\n   \"rating\": {\n    \"average\": 25573530.040686205,\n    \"count\": 46800545,\n    \"ratings\": [\n     {\n      \"id\": \"amet Ut ullamco\",\n      \"author\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rating\": -39801030,\n      \"title\": \"ipsum labore\",\n      \"content\": \"dolor Excepteur nostrud sint\",\n      \"image\": \"ut commodo sunt Duis esse\",\n      \"createdAt\": \"nulla magna aliqua\",\n      \"replies\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     {\n      \"id\": \"ullamco irure enim\",\n      \"author\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rating\": -6431265,\n      \"title\": \"Ut\",\n      \"content\": \"nisi velit exercitation dolore\",\n      \"image\": \"consectetur esse\",\n      \"createdAt\": \"minim quis dolore mollit\",\n      \"replies\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     }\n    ]\n   }\n  },\n  \"occupant_count\": -3628296\n },\n {\n  \"id\": \"adipisicing dolor reprehenderit culpa\",\n  \"state\": \"ullamco labore consectetur cupidatat aliquip\",\n  \"accommodation\": {\n   \"id\": \"et ipsum\",\n   \"title\": \"irure deserunt\",\n   \"description\": \"officia id\",\n   \"images\": [\n    \"exercitation et aute\",\n    \"id officia in ad\"\n   ],\n   \"location\": {\n    \"id\": \"ut est ad deserunt\",\n    \"address\": \"q\"\n   },\n   \"occupant_count\": -69544568,\n   \"rating\": {\n    \"average\": -58891338.48674568,\n    \"count\": -66623337,\n    \"ratings\": [\n     {\n      \"id\": \"consectetur ut laboris\",\n      \"author\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rating\": 86454975,\n      \"title\": \"esse do\",\n      \"content\": \"dolore aliquip u\",\n      \"image\": \"ea ad sint ipsum\",\n      \"createdAt\": \"ullamco consectetur dolore ex\",\n      \"replies\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     {\n      \"id\": \"et sed tempor elit do\",\n      \"author\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"rating\": -31821644,\n      \"title\": \"deserunt exercitation reprehenderit\",\n      \"content\": \"velit cillum consectetur\",\n      \"image\": \"veniam officia enim pariatur\",\n      \"createdAt\": \"ad magna sunt in\",\n      \"replies\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     }\n    ]\n   }\n  },\n  \"occupant_count\": -39295743\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Creates order with accommodation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/:acc_id/create/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":acc_id",
+								"create",
+								""
+							],
+							"variable": [
+								{
+									"key": "acc_id",
+									"value": "non",
+									"type": "string",
+									"description": "(Required) Accommodation uuid"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/:acc_id/create/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										":acc_id",
+										"create",
+										""
+									],
+									"variable": [
+										{
+											"key": "acc_id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "The specified resource was not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/:acc_id/create/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										":acc_id",
+										"create",
+										""
+									],
+									"variable": [
+										{
+											"key": "acc_id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/order/:acc_id/create/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"order",
+										":acc_id",
+										"create",
+										""
+									],
+									"variable": [
+										{
+											"key": "acc_id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"Duis pariatur\",\n \"state\": \"sit irure labore\",\n \"accommodation\": {\n  \"id\": \"nostrud aliqua quis mollit\",\n  \"title\": \"labore non cillum sunt\",\n  \"description\": \"quis pariatur consectetur proident\",\n  \"images\": [\n   \"commodo sint\",\n   \"pariatur\"\n  ],\n  \"location\": {\n   \"id\": \"velit consequat aliqua\",\n   \"address\": \"mollit\"\n  },\n  \"occupant_count\": -17542293,\n  \"rating\": {\n   \"average\": -48726023.517282255,\n   \"count\": 28829845,\n   \"ratings\": [\n    {\n     \"id\": \"enim elit\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": 59643674,\n     \"title\": \"ut tempor reprehenderit\",\n     \"content\": \"incididunt cupidatat\",\n     \"image\": \"occaecat cillum dolore consequat ut\",\n     \"createdAt\": \"cillum sint do dolore\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    },\n    {\n     \"id\": \"ut\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": -88501172,\n     \"title\": \"sunt\",\n     \"content\": \"ei\",\n     \"image\": \"ex eu laboris nostrud\",\n     \"createdAt\": \"sit eius\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   ]\n  }\n },\n \"occupant_count\": 78782472\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "accommodation",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "rating",
+							"item": [
+								{
+									"name": "{rating id}",
+									"item": [
+										{
+											"name": "Updates rating for specified accommodation",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating",
+														":rating_id",
+														""
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Accommodation uuid"
+														},
+														{
+															"key": "rating_id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Rating uuid"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "The specified resource was not found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating",
+																":rating_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "rating_id"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating",
+																":rating_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "rating_id"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating",
+																":rating_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "rating_id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Deletes rating for specified accommodation",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating",
+														":rating_id",
+														""
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Accommodation uuid"
+														},
+														{
+															"key": "rating_id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Rating uuid"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating",
+																":rating_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "rating_id"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "The specified resource was not found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating",
+																":rating_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "rating_id"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"consectetur ullamco ad magna\",\n    \"author\": {\n        \"username\": \"sunt veniam ut\",\n        \"firstName\": \"non cillum proident adipisicing dolore\",\n        \"lastName\": \"veniam aliquip occaecat ipsum\",\n        \"email\": \"ut mollit\",\n        \"password\": \"do aliqua deserunt id Excepteur\"\n    },\n    \"rating\": 78585465,\n    \"title\": \"sunt ullamco\",\n    \"content\": \"sunt dolore dolor\",\n    \"image\": \"eu\",\n    \"createdAt\": \"ullamco\",\n    \"replies\": [\n        {\n            \"id\": \"labore veniam tempor\",\n            \"author\": {\n                \"username\": \"exercitation\",\n                \"firstName\": \"tempor mini\",\n                \"lastName\": \"officia minim i\",\n                \"email\": \"occaecat veniam in\",\n                \"password\": \"Duis in\"\n            },\n            \"rating\": 96173607,\n            \"content\": \"aliquip Lorem mollit\",\n            \"createdAt\": \"aliqua reprehenderit\"\n        },\n        {\n            \"id\": \"nisi\",\n            \"author\": {\n                \"username\": \"minim anim magna velit\",\n                \"firstName\": \"officia do commodo\",\n                \"lastName\": \"id fugiat\",\n                \"email\": \"sed veniam ipsum sunt\",\n                \"password\": \"voluptate Excepteur\"\n            },\n            \"rating\": -23363416,\n            \"content\": \"velit Ut sed\",\n            \"createdAt\": \"adipisicing aute eiusmod sit\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating/:rating_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating",
+																":rating_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "rating_id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Adds a rating for specified accommodation",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/accommodation/:id/rating/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accommodation",
+												":id",
+												"rating",
+												""
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "non",
+													"type": "string",
+													"description": "(Required) Accommodation uuid"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "The specified resource was not found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating",
+														""
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating",
+														""
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating",
+														""
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "rating-reply",
+							"item": [
+								{
+									"name": "{reply id}",
+									"item": [
+										{
+											"name": "Updates the rating reply",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"in esse\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating-reply",
+														":reply_id",
+														""
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Accommodation uuid"
+														},
+														{
+															"key": "reply_id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Reply uuid"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"in esse\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating-reply",
+																":reply_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "reply_id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "The specified resource was not found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"in esse\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating-reply",
+																":reply_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "reply_id"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"id\": \"in esse\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating-reply",
+																":reply_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "reply_id"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Deletes rating reply",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating-reply",
+														":reply_id",
+														""
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Accommodation uuid"
+														},
+														{
+															"key": "reply_id",
+															"value": "non",
+															"type": "string",
+															"description": "(Required) Reply uuid"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating-reply",
+																":reply_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "reply_id"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "The specified resource was not found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating-reply",
+																":reply_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "reply_id"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/accommodation/:id/rating-reply/:reply_id/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"accommodation",
+																":id",
+																"rating-reply",
+																":reply_id",
+																""
+															],
+															"variable": [
+																{
+																	"key": "id"
+																},
+																{
+																	"key": "reply_id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Adds a rating reply to specified accommodation",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/accommodation/:id/rating-reply/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accommodation",
+												":id",
+												"rating-reply",
+												""
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "non",
+													"type": "string",
+													"description": "(Required) Accommodation uuid"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating-reply/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating-reply",
+														""
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "The specified resource was not found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating-reply/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating-reply",
+														""
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/accommodation/:id/rating-reply/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"accommodation",
+														":id",
+														"rating-reply",
+														""
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": \"in esse\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Gets information about accommodation by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/accommodation/:id/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accommodation",
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "non",
+											"type": "string",
+											"description": "(Required) Accommodation uuid"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/accommodation/:id/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accommodation",
+												":id",
+												""
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/accommodation/:id/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accommodation",
+												":id",
+												""
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"Ut reprehenderit\",\n \"title\": \"Duis nisi esse aute laboris\",\n \"description\": \"officia elit\",\n \"images\": [\n  \"cons\",\n  \"ad magna\"\n ],\n \"location\": {\n  \"id\": \"ut\",\n  \"address\": \"ullamco\"\n },\n \"occupant_count\": -8987542,\n \"rating\": {\n  \"average\": -52643756.872939296,\n  \"count\": -31562459,\n  \"ratings\": [\n   {\n    \"id\": \"reprehenderit sed\",\n    \"author\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"rating\": -37846726,\n    \"title\": \"Duis nostrud irure\",\n    \"content\": \"sunt aliqua est aliquip fugiat\",\n    \"image\": \"nostrud occaecat sunt\",\n    \"createdAt\": \"\",\n    \"replies\": [\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    ]\n   },\n   {\n    \"id\": \"do\",\n    \"author\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"rating\": 4727723,\n    \"title\": \"magna adipisicing nisi\",\n    \"content\": \"esse magna anim ea\",\n    \"image\": \"enim in voluptate\",\n    \"createdAt\": \"est consectetur pariatur ullamco laborum\",\n    \"replies\": [\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    ]\n   }\n  ]\n }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/accommodation/:id/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accommodation",
+												":id",
+												""
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Gets list of filtered accommodations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/accommodation/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accommodation",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The specified resource was not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/accommodation/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accommodation",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/accommodation/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accommodation",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"do velit sunt esse dolore\",\n  \"title\": \"culpa anim est\",\n  \"description\": \"laboris enim do\",\n  \"images\": [\n   \"Duis eu dolore reprehenderit\",\n   \"et enim\"\n  ],\n  \"location\": {\n   \"id\": \"pariatur sunt anim\",\n   \"address\": \"officia laboris\"\n  },\n  \"occupant_count\": 66753420,\n  \"rating\": {\n   \"average\": -23562867.44927703,\n   \"count\": 46213932,\n   \"ratings\": [\n    {\n     \"id\": \"veniam consectetur aute ea voluptate\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": 57292229,\n     \"title\": \"aute dolore\",\n     \"content\": \"Excepteur voluptate\",\n     \"image\": \"non deserunt ea et \",\n     \"createdAt\": \"qui\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    },\n    {\n     \"id\": \"pariatur ea\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": -41319787,\n     \"title\": \"ut pariatur\",\n     \"content\": \"culpa deserunt aliqua\",\n     \"image\": \"a\",\n     \"createdAt\": \"cillum tempor id quis non\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   ]\n  }\n },\n {\n  \"id\": \"dol\",\n  \"title\": \"veniam\",\n  \"description\": \"Ut in cupidatat et\",\n  \"images\": [\n   \"magna id\",\n   \"consequat cillum\"\n  ],\n  \"location\": {\n   \"id\": \"elit occaeca\",\n   \"address\": \"cupidatat in\"\n  },\n  \"occupant_count\": -19947260,\n  \"rating\": {\n   \"average\": -41952090.33676033,\n   \"count\": 69066799,\n   \"ratings\": [\n    {\n     \"id\": \"aliquip magna id\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": -76352589,\n     \"title\": \"reprehenderit qui v\",\n     \"content\": \"sed aute\",\n     \"image\": \"velit minim\",\n     \"createdAt\": \"veniam\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    },\n    {\n     \"id\": \"proident incididunt Excepteur\",\n     \"author\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"rating\": 6938568,\n     \"title\": \"ipsum quis\",\n     \"content\": \"eu ea id\",\n     \"image\": \"aute non veniam\",\n     \"createdAt\": \"incididunt ut pariatur in\",\n     \"replies\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   ]\n  }\n }\n]"
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/accommodation/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accommodation",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "fill",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://virtserver.swaggerhub.com/cugi143/MTAA/1.0.0",
+			"type": "string"
+		}
+	]
+}
