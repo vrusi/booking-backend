@@ -12,3 +12,4 @@ class RegisterLogic:
 
         user.set_password(data['password'])
         user.save()
+        return user

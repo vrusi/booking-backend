@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('Orders.urls')),
     url(r'auth/login/', obtain_jwt_token),
-
+    url(r'auth/register/', obtain_jwt_token),
 ]
