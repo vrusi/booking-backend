@@ -48,7 +48,7 @@ class AccommodationView(GenericViewSet):
 
         return Response(HTTP_200_OK)
 
-    @action(methods=['put'], detail=True, url_path='rating/(?P<rating_id>.+)')
+    @action(methods=['put'], detail=True, url_path='rating/update/(?P<rating_id>.+)')
     def update_rating(self, request, pk, rating_id):
         try:
             self.logic.update_rating(rating_id, request.data)
@@ -58,7 +58,7 @@ class AccommodationView(GenericViewSet):
 
         return Response(HTTP_200_OK)
 
-    @action(methods=['delete'], detail=True, url_path='rating/(?P<rating_id>.+)')
+    @action(methods=['delete'], detail=True, url_path='rating/delete/(?P<rating_id>.+)')
     def delete_rating(self, request, pk, rating_id):
         try:
             self.logic.delete_rating(rating_id)

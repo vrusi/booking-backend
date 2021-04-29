@@ -40,6 +40,11 @@ class AccommodationParser:
         acc_rating.count += 1
 
     def parse_and_count_ratings(self, object_rating, rating):
+
+        file_name = f'rating_images/{rating.id.__str__()}.jpg'
+
+        image = file_name if os.path.exists(file_name) else None
+
         api_rating = api.Rating(
             id=rating.id.__str__(),
 
@@ -48,6 +53,7 @@ class AccommodationParser:
                 first_name=rating.user.first_name,
                 last_name=rating.user.last_name,
             ),
+            image=image,
 
             rating=rating.rating,
             title=rating.title,
@@ -55,11 +61,6 @@ class AccommodationParser:
             created_at=rating.created_at.isoformat(),
 
         )
-
-        file_name = f'rating_images/{rating.id.__str__()}'
-
-        if os.path.exists(file_name):
-            api_rating.image = file_name
 
         api_rating.replies = [api.RatingReply(
             id=reply.id.__str__(),

@@ -1,5 +1,6 @@
 from Orders.parsers.accommodation_parser import AccommodationParser
 from Orders.models import *
+import os
 
 
 class AccommodationLogic:
@@ -35,7 +36,12 @@ class AccommodationLogic:
         if 'image' in data:
             uploaded_file_name = data['image'].name.split('.')[-1]
 
-            file_name = f'rating_images/{rating.id.__str__()}'
+            try:
+                os.makedirs(f'rating_images/')
+            except OSError as e:
+                pass
+
+            file_name = f'rating_images/{rating.id.__str__()}.jpg'
 
             f = open(file_name, 'wb')
             f.write(data['image'].read())
@@ -43,7 +49,6 @@ class AccommodationLogic:
 
     def update_rating(self, rating_id, data):
         # rating_id = data['id']
-
         try:
             rating = Rating.objects.filter(id=rating_id)[0]
         except Exception as e:

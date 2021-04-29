@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from rest_framework_jwt.views import obtain_jwt_token
 
@@ -25,4 +27,4 @@ urlpatterns = [
     path(r'', include('Orders.urls')),
     url(r'auth/login/', obtain_jwt_token),
     url(r'auth/register/', obtain_jwt_token),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
