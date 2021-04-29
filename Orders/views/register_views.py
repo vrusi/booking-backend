@@ -17,7 +17,6 @@ class RegisterView(GenericViewSet):
 
     permission_classes = [AllowAny]
 
-
     @action(methods=['post'], detail=False, url_path='register')
     def register(self, request):
 
@@ -32,15 +31,4 @@ class RegisterView(GenericViewSet):
             self.logger.exception(e)
             return Response(status=HTTP_500_INTERNAL_SERVER_ERROR)
 
-        return Response(token)
-
-
-
-
-
-
-
-
-
-
-
+        return Response({'token': token})

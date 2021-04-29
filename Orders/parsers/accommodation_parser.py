@@ -1,12 +1,14 @@
 import Orders.api_models.models as api
+import os.path
 from Orders.models.models import *
+
 
 class AccommodationParser:
 
     def parse_accommodation_overview(self, accommodation):
         api_accommodation = api.Accommodation(
             id=accommodation.id.__str__(),
-                location=api.Location(
+            location=api.Location(
                 id=accommodation.location.id.__str__(),
                 address=accommodation.location.address
             ),
@@ -28,7 +30,8 @@ class AccommodationParser:
             in Rating.objects.filter(accommodation=accommodation)
         ]
 
-        api_accommodation.rating.average = None if api_accommodation.rating.count == 0 else api_accommodation.rating.average/ api_accommodation.rating.count
+        api_accommodation.rating.average = None if api_accommodation.rating.count == 0 else api_accommodation.rating.average / \
+            api_accommodation.rating.count
 
         return api_accommodation
 
@@ -54,10 +57,9 @@ class AccommodationParser:
         )
 
         file_name = f'rating_images/{rating.id.__str__()}'
-        f = open(file_name, 'rb')
-        api_rating.image = str(f.read())
-        f.close()
 
+        if os.path.exists(file_name):
+            api_rating.image = file_name
 
         api_rating.replies = [api.RatingReply(
             id=reply.id.__str__(),
