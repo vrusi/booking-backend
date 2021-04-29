@@ -17,8 +17,10 @@ class AccommodationView(GenericViewSet):
 
     def list(self, request):
         try:
-            filtered_accommodations = self.logic.get_filtered_accommodations(None)
-            filtered_accommodations = [item.to_dict() for item in filtered_accommodations]
+            filtered_accommodations = self.logic.get_filtered_accommodations(
+                None)
+            filtered_accommodations = [item.to_dict()
+                                       for item in filtered_accommodations]
             pass
         except Exception as e:
             self.logger.exception(e)

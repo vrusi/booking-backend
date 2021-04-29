@@ -32,13 +32,14 @@ class AccommodationLogic:
             text=data['text']
         )
 
-        uploaded_file_name = data['image'].name.split('.')[-1]
+        if 'image' in data:
+            uploaded_file_name = data['image'].name.split('.')[-1]
 
-        file_name = f'rating_images/{rating.id.__str__()}'
+            file_name = f'rating_images/{rating.id.__str__()}'
 
-        f = open(file_name, 'wb')
-        f.write(data['image'].read())
-        f.close()
+            f = open(file_name, 'wb')
+            f.write(data['image'].read())
+            f.close()
 
     def update_rating(self, rating_id, data):
         # rating_id = data['id']
