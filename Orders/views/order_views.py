@@ -37,7 +37,7 @@ class OrderView(GenericViewSet):
 
         return Response(api_order.to_dict())
 
-    @action(methods=['put'], detail=False, url_path='/(?P<order_id>.+)/update')
+    @action(methods=['put'], detail=False, url_path='(?P<order_id>.+)/update')
     def update_order(self, request, order_id):
         try:
             api_order = self.logic.update_order(request.user, order_id, request.data)
@@ -48,7 +48,7 @@ class OrderView(GenericViewSet):
 
         return Response(api_order.to_dict())
 
-    @action(methods=['delete'], detail=False, url_path='/(?P<order_id>.+)/delete')
+    @action(methods=['delete'], detail=False, url_path='(?P<order_id>.+)/delete')
     def delete_order(self, request, order_id):
         try:
             self.logic.delete_order(request.user, order_id)
@@ -59,7 +59,7 @@ class OrderView(GenericViewSet):
 
         return Response(HTTP_200_OK)
 
-    @action(methods=['post'], detail=False, url_path='(/?P<acc_id>.+)/create')
+    @action(methods=['post'], detail=False, url_path='(?P<acc_id>.+)/create')
     def create_order(self, request, acc_id):
         try:
             self.logic.create_order(request.user, acc_id)
